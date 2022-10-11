@@ -32,4 +32,4 @@ if (XRPF.PrivacyFramework.Agreement.IsSocialDataAllowed) { /* do something */ }
 
 //called after a privacy policy is set or changed by the user
 XRPF.PrivacyFramework.OnPrivacyAgreementChanged += PrivacyFramework_OnPrivacyAgreementChanged;
-```
+``` 
