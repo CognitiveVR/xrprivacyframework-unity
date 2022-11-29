@@ -12,11 +12,31 @@ The [XR Privacy Framework](https://github.com/CognitiveVR/xrprivacyframework)(XR
 
 ## Samples
 
+We have two samples in the package. You can install them from the package manager, as shown below.
+
+![XRPF Samples](res/XRPFPackage.png)
+
 ### Popup Sample
 
 There is a sample world-space canvas prefab ("AgreementCanvas") that can be instantiated at runtime. This provides a configurable description of all the different types of data the application may record. It also includes a configurable link to your privacy policy. This may need to be customized to handle UI inputs with your chosen platform.
 
 It depends on the TextMeshPro package.
+
+![Agreement Popup](res/UnityXRPFAgreement.png)
+
+The popup prefab has some settings you can modify in the inspector. 
+
+`Privacy Policy Link` : Enter the URL to launch when user clicks the Privacy Policy button
+
+Each data type also has the following settings that dictate how the Agreement Canvas will be presented.
+
+`Required`: User cannot opt out of this
+`Default On`: The toggle button will be in the "enabled" position by default
+`Default Off`: The toggle button will be in the "disabled" position by default
+`Unused`: This data type won't be displayed
+
+![Agreement Details](res/AgreementDetails.png)
+
 
 ### Code Sample
 
