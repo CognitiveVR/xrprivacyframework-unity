@@ -8,7 +8,7 @@ The [XR Privacy Framework](https://github.com/CognitiveVR/xrprivacyframework)(XR
 
 * Open Package Manager from the Window menu
 * Click the '+' in the top left and select 'Add Package from git URL'
-* Input 'https://github.com/cognitivevr/xrprivacyframework-unity.git'
+* Input `https://github.com/cognitivevr/xrprivacyframework-unity.git`
 
 ## Samples
 
