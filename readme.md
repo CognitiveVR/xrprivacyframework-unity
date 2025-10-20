@@ -1,6 +1,6 @@
-The XR Privacy Framework for Unity
-=========
-The [XR Privacy Framework](https://github.com/CognitiveVR/xrprivacyframework)(XRPF) is for app developers to inform their users about the data they collect. The intention is to allow users to control what data is recorded for analytics/advertising/machine learning purposes while still engaging with fully featured XR experiences.
+# The XR Privacy Framework for Unity
+
+The [XR Privacy Framework](https://xrprivacyframework.org) (XRPF) is for app developers to inform their users about the data they collect. The intention is to allow users to control what data is recorded for analytics / advertising / machine learning purposes while still engaging with fully featured XR experiences.
 
 **This package requires Unity 2019.4.40f1 or newer**
 
