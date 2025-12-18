@@ -24,6 +24,76 @@ namespace XRPF.Samples
         public Image EnableImage;
         public Image DisableImage;
 
+        [Header("Theme References")]
+        public Image rowBackground;
+        public Image iconImage;
+        public Image iconFrame;
+        public Image RequiredFrame;
+
+        // Store theme colors
+        private Color _rowActiveBg;
+        private Color _iconActive;
+        private Color _iconFrameActive;
+        private Color _labelActive;
+        private Color _requiredBadgeBg;
+
+        /// <summary>
+        /// Set all theme colors for this foldout
+        /// </summary>
+        public void SetThemeColors(
+            Color rowBg,
+            Color iconActive,
+            Color iconFrameActive,
+            Color labelActive,
+            Color requiredBadgeBg)
+        {
+            _rowActiveBg = rowBg;
+            _iconActive = iconActive;
+            _iconFrameActive = iconFrameActive;
+            _labelActive = labelActive;
+            _requiredBadgeBg = requiredBadgeBg;
+
+            // Apply required badge colors
+            if (RequiredFrame != null)
+            {
+                RequiredFrame.color = _requiredBadgeBg;
+            }
+
+            // Refresh current visual state
+            UpdateVisualState();
+        }
+
+        /// <summary>
+        /// Update visual state based on toggle
+        /// </summary>
+        public void UpdateVisualState()
+        {
+            if (rowBackground != null)
+            {
+                rowBackground.color = _rowActiveBg;
+            }
+            if (iconImage != null)
+            {
+                iconImage.color = _iconActive;
+            }
+            if (iconFrame != null)
+            {
+                iconFrame.color = _iconFrameActive;
+            }
+            if (TitleText != null)
+            {
+                TitleText.color = _labelActive;
+            }
+        }
+
+        /// <summary>
+        /// Call this when toggle value changes
+        /// </summary>
+        public void OnToggleValueChanged(bool isOn)
+        {
+            UpdateVisualState();
+        }
+
         /// <summary>
         /// internal function to calculate the required size of the rect transform
         /// </summary>
