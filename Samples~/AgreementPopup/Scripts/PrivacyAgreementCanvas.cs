@@ -42,10 +42,6 @@ namespace XRPF.Samples
         public Color confirmButtonBottom = new Color(0.13f, 0.83f, 0.93f, 1f);
         public Color confirmButtonText = Color.white;
         public Color privacyLinkColor = new Color(0.65f, 0.55f, 0.98f, 1f);
-
-        [Header("Glow Effects")]
-        public Color glowColor = new Color(0.39f, 0.4f, 0.95f, 0.4f);
-        [Range(0, 1)] public float glowIntensity = 0.5f;
     }
 
     public class PrivacyAgreementCanvas : MonoBehaviour
