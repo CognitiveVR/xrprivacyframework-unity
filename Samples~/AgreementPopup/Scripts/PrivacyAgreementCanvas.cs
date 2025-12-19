@@ -231,15 +231,9 @@ namespace XRPF.Samples
         {
             if (foldout == null) return;
 
-            AgreementType resultType;
-            if (configuredType == AgreementType.Required || configuredType == AgreementType.Unused)
-            {
-                resultType = configuredType;
-            }
-            else
-            {
-                resultType = isAllowed ? AgreementType.DefaultOn : AgreementType.DefaultOff;
-            }
+            AgreementType resultType = (configuredType == AgreementType.Required || configuredType == AgreementType.Unused)
+                ? configuredType
+                : isAllowed ? AgreementType.DefaultOn : AgreementType.DefaultOff;
             foldout.SetDisplay(resultType);
         }
 
@@ -249,12 +243,12 @@ namespace XRPF.Samples
 
         public void Button_Confirm()
         {
-            bool hardwareData = HardwareFoldout != null && HardwareFoldout.Toggle != null ? HardwareFoldout.Toggle.isOn : false;
-            bool spatialData = SpatialFoldout != null && SpatialFoldout.Toggle != null ? SpatialFoldout.Toggle.isOn : false;
-            bool locationData = LocationFoldout != null && LocationFoldout.Toggle != null ? LocationFoldout.Toggle.isOn : false;
-            bool socialData = SocialFoldout != null && SocialFoldout.Toggle != null ? SocialFoldout.Toggle.isOn : false;
-            bool biosensorData = BioSensorFoldout != null && BioSensorFoldout.Toggle != null ? BioSensorFoldout.Toggle.isOn : false;
-            bool audioData = AudioFoldout != null && AudioFoldout.Toggle != null ? AudioFoldout.Toggle.isOn : false;
+            bool hardwareData = HardwareFoldout != null && HardwareFoldout.Toggle != null && HardwareFoldout.Toggle.isOn;
+            bool spatialData = SpatialFoldout != null && SpatialFoldout.Toggle != null && SpatialFoldout.Toggle.isOn;
+            bool locationData = LocationFoldout != null && LocationFoldout.Toggle != null && LocationFoldout.Toggle.isOn;
+            bool socialData = SocialFoldout != null && SocialFoldout.Toggle != null && SocialFoldout.Toggle.isOn;
+            bool biosensorData = BioSensorFoldout != null && BioSensorFoldout.Toggle != null && BioSensorFoldout.Toggle.isOn;
+            bool audioData = AudioFoldout != null && AudioFoldout.Toggle != null && AudioFoldout.Toggle.isOn;
             Debug.Log(string.Format("Set Privacy Agreement hardwareData:{0} spatialData:{1} locationData:{2} socialData:{3} bioData:{4} audioData:{5}",
                 hardwareData, spatialData, locationData, socialData, biosensorData, audioData));
 

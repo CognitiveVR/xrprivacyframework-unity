@@ -16,7 +16,7 @@ namespace XRPF.Samples
         public bool audio;
         public override string ToString()
         {
-            return string.Format("Privacy Agreement hardwareData:{0} spatialData:{1} locationData:{2} socialData:{3} bioData:{4}",
+            return string.Format("Privacy Agreement hardwareData:{0} spatialData:{1} locationData:{2} socialData:{3} bioData:{4} audioData:{5}",
                 hardware,
                 spatial,
                 location,
