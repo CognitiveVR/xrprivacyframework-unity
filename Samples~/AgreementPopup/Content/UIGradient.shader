@@ -1,4 +1,4 @@
-Shader "Cognitive3D/UI/Gradient"
+Shader "XRPF/UI/Gradient"
 {
     Properties
     {

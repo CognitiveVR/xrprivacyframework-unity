@@ -1,4 +1,4 @@
-Shader "Cognitive3D/UI/RadialGlow"
+Shader "XRPF/UI/RadialGlow"
 {
     Properties
     {

@@ -10,12 +10,6 @@ namespace XRPF.Samples
 {
     public class Foldout : MonoBehaviour
     {
-        const float CollapsedHeight = 0.12f;
-        float preferredHeight;
-
-        [HideInInspector]
-        public bool isCollapsed = true;
-
         public TMPro.TextMeshProUGUI TitleText;
         public TMPro.TextMeshProUGUI DescriptionText;
         public TMPro.TextMeshProUGUI RequiredText;
@@ -92,79 +86,6 @@ namespace XRPF.Samples
         public void OnToggleValueChanged(bool isOn)
         {
             UpdateVisualState();
-        }
-
-        /// <summary>
-        /// internal function to calculate the required size of the rect transform
-        /// </summary>
-        private void RecalculateSize()
-        {
-            float preferredHeight = 0;
-            preferredHeight += CollapsedHeight; //header
-            if (DescriptionText != null)
-            {
-                preferredHeight += DescriptionText.preferredHeight; //description
-            }
-            this.preferredHeight = preferredHeight;
-        }
-
-        /// <summary>
-        /// editor context menu to expand the foldout
-        /// </summary>
-        [ContextMenu("Expand")]
-        private void EditorExpand()
-        {
-            RecalculateSize();
-            SetCollapsed(false);
-            isCollapsed = false;
-        }
-
-        /// <summary>
-        /// editor context menu to collapse the foldout
-        /// </summary>
-        [ContextMenu("Collapse")]
-        private void EditorCollapse()
-        {
-            RecalculateSize();
-            SetCollapsed(true);
-            isCollapsed = true;
-        }
-
-        public void ToggleCollapse()
-        {
-            isCollapsed = !isCollapsed;
-            RecalculateSize();
-            SetCollapsed(isCollapsed);
-        }
-
-        public void Button_Toggle(bool enabled)
-        {
-            if (enabled)
-            {
-                EnableImage.enabled = true;
-                DisableImage.enabled = false;
-            }
-            else
-            {
-                EnableImage.enabled = false;
-                DisableImage.enabled = true;
-            }
-        }
-
-        private void SetCollapsed(bool collapsed)
-        {
-            isCollapsed = collapsed;
-            var rectTransform = GetComponent<RectTransform>();
-            Vector2 currentSize = rectTransform.sizeDelta;
-
-            float width = currentSize.x;
-            float height = preferredHeight;
-            if (collapsed)
-            {
-                height = CollapsedHeight;
-            }
-
-            rectTransform.sizeDelta = new Vector2(width, height);
         }
 
         /// <summary>
