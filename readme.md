@@ -2,7 +2,7 @@
 
 The [XR Privacy Framework](https://xrprivacyframework.org) (XRPF) is for app developers to inform their users about the data they collect. The intention is to allow users to control what data is recorded for analytics / advertising / machine learning purposes while still engaging with fully featured XR experiences.
 
-**This package requires Unity 2019.4.40f1 or newer**
+**This package requires Unity 2021.3.45f1 or newer**
 
 ## Installation
 
@@ -24,7 +24,7 @@ It depends on the TextMeshPro package.
 
 ![Agreement Popup](res/UnityXRPFAgreement.png)
 
-The popup prefab has some settings you can modify in the inspector. 
+The popup prefab has some settings you can modify in the inspector.
 
 `Privacy Policy Link` : Enter the URL to launch when user clicks the Privacy Policy button
 
@@ -37,6 +37,11 @@ Each data type also has the following settings that dictate how the Agreement Ca
 
 ![Agreement Details](res/AgreementDetails.png)
 
+### Customization
+
+The agreement prefab UI can be styled through the Color Theme section of the Privacy Agreement Canvas component. Background, card, and button colors are fully configurable to match your application's design system.
+
+![Agreement Theme Customization](res/AgreementThemeCustomization.png)
 
 ### Code Sample
 
@@ -44,7 +49,7 @@ The core code is designed for app developers to quickly implement. In most cases
 
 ```csharp
 //creates a new agreement from the user's choices
-XRPF.PrivacyFramework.SetNewAgreement(allowHardwareData: true, allowSpatialData: true, allowLocationData: true, allowSocialData: true, allowBioData: true);
+XRPF.PrivacyFramework.SetNewAgreement(allowHardwareData: true, allowSpatialData: true, allowLocationData: true, allowSocialData: true, allowBioData: true, allowAudioData: true);
 
 //check if the user's agreement allows social data to be recorded
 //other data sources have their own properties
