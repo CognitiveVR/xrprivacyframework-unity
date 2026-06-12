@@ -58,6 +58,7 @@ namespace XRPF.Samples
         public AgreementType SocialData;
         public AgreementType BioSensorData;
         public AgreementType AudioData;
+        public AgreementType RoomData;
 
         [Header("UI References")]
         public Foldout HardwareFoldout;
@@ -66,7 +67,7 @@ namespace XRPF.Samples
         public Foldout SocialFoldout;
         public Foldout BioSensorFoldout;
         public Foldout AudioFoldout;
-
+        public Foldout RoomFoldout;
         [Header("Background References")]
         public Image backgroundImage;
         public Material backgroundMaterial;
@@ -139,6 +140,7 @@ namespace XRPF.Samples
             ApplyThemeToFoldout(SocialFoldout);
             ApplyThemeToFoldout(BioSensorFoldout);
             ApplyThemeToFoldout(AudioFoldout);
+            ApplyThemeToFoldout(RoomFoldout);
         }
 
         private void ApplyThemeToFoldout(Foldout foldout)
@@ -200,7 +202,7 @@ namespace XRPF.Samples
             if (SocialFoldout != null) SocialFoldout.SetDisplay(SocialData);
             if (BioSensorFoldout != null) BioSensorFoldout.SetDisplay(BioSensorData);
             if (AudioFoldout != null) AudioFoldout.SetDisplay(AudioData);
-
+            if (RoomFoldout != null) RoomFoldout.SetDisplay(RoomData);
             if (Application.isPlaying && XRPF.PrivacyFramework.Agreement.IsAgreementComplete)
             {
                 LoadExistingAgreement();
@@ -225,6 +227,7 @@ namespace XRPF.Samples
             SetFoldoutFromAgreement(SocialFoldout, SocialData, XRPF.PrivacyFramework.Agreement.IsSocialDataAllowed);
             SetFoldoutFromAgreement(BioSensorFoldout, BioSensorData, XRPF.PrivacyFramework.Agreement.IsBioDataAllowed);
             SetFoldoutFromAgreement(AudioFoldout, AudioData, XRPF.PrivacyFramework.Agreement.IsAudioDataAllowed);
+            SetFoldoutFromAgreement(RoomFoldout, RoomData, XRPF.PrivacyFramework.Agreement.IsRoomCaptureDataAllowed);
         }
 
         private void SetFoldoutFromAgreement(Foldout foldout, AgreementType configuredType, bool isAllowed)
@@ -249,8 +252,9 @@ namespace XRPF.Samples
             bool socialData = SocialFoldout != null && SocialFoldout.Toggle != null && SocialFoldout.Toggle.isOn;
             bool biosensorData = BioSensorFoldout != null && BioSensorFoldout.Toggle != null && BioSensorFoldout.Toggle.isOn;
             bool audioData = AudioFoldout != null && AudioFoldout.Toggle != null && AudioFoldout.Toggle.isOn;
-            Debug.Log(string.Format("Set Privacy Agreement hardwareData:{0} spatialData:{1} locationData:{2} socialData:{3} bioData:{4} audioData:{5}",
-                hardwareData, spatialData, locationData, socialData, biosensorData, audioData));
+            bool roomCaptureData = RoomFoldout != null && RoomFoldout.Toggle != null && RoomFoldout.Toggle.isOn;
+            Debug.Log(string.Format("Set Privacy Agreement hardwareData:{0} spatialData:{1} locationData:{2} socialData:{3} bioData:{4} audioData:{5} roomCaptureData:{6}",
+                hardwareData, spatialData, locationData, socialData, biosensorData, audioData, roomCaptureData));
 
             XRPF.PrivacyFramework.SetNewAgreement(
                 allowHardwareData: hardwareData,
@@ -258,7 +262,8 @@ namespace XRPF.Samples
                 allowLocationData: locationData,
                 allowSocialData: socialData,
                 allowBioData: biosensorData,
-                allowAudioData: audioData);
+                allowAudioData: audioData,
+                allowRoomCaptureData: roomCaptureData);
 
             Destroy(gameObject);
         }

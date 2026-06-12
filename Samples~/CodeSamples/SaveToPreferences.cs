@@ -14,15 +14,17 @@ namespace XRPF.Samples
         public bool social;
         public bool biosensors;
         public bool audio;
+        public bool room;
         public override string ToString()
         {
-            return string.Format("Privacy Agreement hardwareData:{0} spatialData:{1} locationData:{2} socialData:{3} bioData:{4} audioData:{5}",
+            return string.Format("Privacy Agreement hardwareData:{0} spatialData:{1} locationData:{2} socialData:{3} bioData:{4} audioData:{5} roomData:{6}",
                 hardware,
                 spatial,
                 location,
                 social,
                 biosensors,
-                audio);
+                audio,
+                room);
         }
     }
 
@@ -43,7 +45,7 @@ namespace XRPF.Samples
             if (PlayerPrefs.HasKey(PreferenceKey))
             {
                 var prefs = JsonUtility.FromJson<XRPF_Preferences>(PlayerPrefs.GetString(PreferenceKey));
-                XRPF.PrivacyFramework.SetNewAgreement(prefs.hardware,prefs.spatial,prefs.location,prefs.social,prefs.biosensors, prefs.audio);
+                XRPF.PrivacyFramework.SetNewAgreement(prefs.hardware,prefs.spatial,prefs.location,prefs.social,prefs.biosensors, prefs.audio, prefs.room);
                 Debug.Log("Found XRPF preferences " + prefs.ToString());
                 return true;
             }
@@ -66,7 +68,8 @@ namespace XRPF.Samples
                 location = XRPF.PrivacyFramework.Agreement.IsLocationDataAllowed,
                 social = XRPF.PrivacyFramework.Agreement.IsSocialDataAllowed,
                 biosensors = XRPF.PrivacyFramework.Agreement.IsBioDataAllowed,
-                audio = XRPF.PrivacyFramework.Agreement.IsAudioDataAllowed
+                audio = XRPF.PrivacyFramework.Agreement.IsAudioDataAllowed,
+                room = XRPF.PrivacyFramework.Agreement.IsRoomCaptureDataAllowed
             };
             var prefs_string = JsonUtility.ToJson(prefs);
             Debug.Log("Save XRPF preferences: "+ prefs_string);
