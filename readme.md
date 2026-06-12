@@ -49,7 +49,7 @@ The core code is designed for app developers to quickly implement. In most cases
 
 ```csharp
 //creates a new agreement from the user's choices
-XRPF.PrivacyFramework.SetNewAgreement(allowHardwareData: true, allowSpatialData: true, allowLocationData: true, allowSocialData: true, allowBioData: true, allowAudioData: true);
+XRPF.PrivacyFramework.SetNewAgreement(allowHardwareData: true, allowSpatialData: true, allowLocationData: true, allowSocialData: true, allowBioData: true, allowAudioData: true, allowRoomCaptureData: true);
 
 //check if the user's agreement allows social data to be recorded
 //other data sources have their own properties
