@@ -83,8 +83,11 @@ namespace XRPF.Samples
         /// <summary>
         /// Call this when toggle value changes
         /// </summary>
-        public void OnToggleValueChanged(bool isOn)
+        public void Button_Toggle()
         {
+            if (Toggle == null) return;
+            if (EnableImage != null) EnableImage.enabled = Toggle.isOn;
+            if (DisableImage != null) DisableImage.enabled = !Toggle.isOn;
             UpdateVisualState();
         }
 
