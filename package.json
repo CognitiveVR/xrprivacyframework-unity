@@ -1,6 +1,6 @@
 {
   "name": "com.xrpf.privacyframework",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "displayName": "XR Privacy Framework",
   "description": "Unity implementation of the XR Privacy Framework",
   "unity": "2021.3",
