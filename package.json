@@ -1,6 +1,6 @@
 {
   "name": "com.xrpf.privacyframework",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "displayName": "XR Privacy Framework",
   "description": "Unity implementation of the XR Privacy Framework",
   "unity": "2021.3",
@@ -8,9 +8,9 @@
   "changelogUrl": "https://github.com/CognitiveVR/xrprivacyframework-unity",
   "licensesUrl": "https://github.com/CognitiveVR/xrprivacyframework-unity/blob/main/LICENSE",
   "dependencies": {
-	  "com.unity.textmeshpro": "2.1.6"
+    "com.unity.textmeshpro": "2.1.6"
   },
- "keywords": [
+  "keywords": [
     "privacy",
     "xr",
     "analytics"
@@ -31,5 +31,5 @@
       "description": "Sample UI that displays options to the user and sets the privacy agreement accordingly",
       "path": "Samples~/AgreementPopup"
     }
-	]
+  ]
 }

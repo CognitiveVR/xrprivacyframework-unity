@@ -9,6 +9,7 @@ namespace XRPF
         bool IsSpatialDataAllowed { get; }
         bool IsHardwareDataAllowed { get; }
         bool IsAudioDataAllowed { get; }
+        bool IsRoomCaptureDataAllowed { get; }
     }
 
     /// <summary>
@@ -37,9 +38,10 @@ namespace XRPF
         /// <param name="allowLocationData"></param>
         /// <param name="allowSocialData"></param>
         /// <param name="allowBioData"></param>
-        public static void SetNewAgreement(bool allowHardwareData, bool allowSpatialData, bool allowLocationData, bool allowSocialData, bool allowBioData, bool allowAudioData)
+        /// <param name="allowRoomCaptureData"></param>
+        public static void SetNewAgreement(bool allowHardwareData, bool allowSpatialData, bool allowLocationData, bool allowSocialData, bool allowBioData, bool allowAudioData, bool allowRoomCaptureData)
         {
-            Agreement = new XRPFAgreement(allowHardwareData, allowSpatialData, allowLocationData, allowSocialData, allowBioData, allowAudioData);
+            Agreement = new XRPFAgreement(allowHardwareData, allowSpatialData, allowLocationData, allowSocialData, allowBioData, allowAudioData, allowRoomCaptureData);
             if (OnPrivacyAgreementChanged != null) { OnPrivacyAgreementChanged(); }
         }
 
@@ -75,6 +77,7 @@ namespace XRPF
         public bool IsSpatialDataAllowed { get { return false; } }
         public bool IsHardwareDataAllowed { get { return false; } }
         public bool IsAudioDataAllowed { get { return false; } }
+        public bool IsRoomCaptureDataAllowed { get { return false; } }
     }
 
     /// <summary>
@@ -82,7 +85,7 @@ namespace XRPF
     /// </summary>
     public class XRPFAgreement : IXRPFProvider
     {
-        public XRPFAgreement(bool hardwareData, bool spatialData, bool locationData, bool socialData, bool bioData, bool audioData)
+        public XRPFAgreement(bool hardwareData, bool spatialData, bool locationData, bool socialData, bool bioData, bool audioData, bool roomCaptureData)
         {
             IsAgreementComplete = true;
             IsHardwareDataAllowed = hardwareData;
@@ -91,6 +94,7 @@ namespace XRPF
             IsSocialDataAllowed = socialData;
             IsBioDataAllowed = bioData;
             IsAudioDataAllowed = audioData;
+            IsRoomCaptureDataAllowed = roomCaptureData;
         }
 
         public bool IsAgreementComplete { get; private set; }
@@ -100,5 +104,6 @@ namespace XRPF
         public bool IsSpatialDataAllowed { get; private set; }
         public bool IsHardwareDataAllowed { get; private set; }
         public bool IsAudioDataAllowed { get; private set; }
+        public bool IsRoomCaptureDataAllowed { get; private set; }
     }
 }
